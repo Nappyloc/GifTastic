@@ -49,35 +49,7 @@ $( document ).ready( function ()
 
 
 
-                // Click on image function to start and stop animation
 
-                $( '.moveMe' ).click( function ( event )
-                {
-                    event.stopPropagation();
-                    let state = $( this ).attr( 'data-state' );
-                    console.log( $( this ) );
-                    console.log( "original state: ", + state );
-
-
-                    //    Check state  and animate or stop animation
-
-                    if ( state === 'still' )
-                    {
-                        $( this ).attr( 'data-state', 'move' );
-                        let moveURL = $( this ).attr( 'data-move' );
-                        $( this ).attr( 'src', moveURL );
-                        console.log( state );
-                    } else //( state === 'move' )
-                    {
-                        $( this ).attr( 'data-state', 'still' );
-                        let stillURL = $( this ).attr( 'data-still' );
-                        $( this ).attr( 'src', stillURL );
-                        console.log( state );
-                    }
-
-
-
-                } )
 
 
 
@@ -104,6 +76,36 @@ $( document ).ready( function ()
 
 
 
+// Click on image function to start and stop animation
+
+$( document ).on( 'click', '.moveMe', function ()
+{
+
+    let state = $( this ).attr( 'data-state' );
+    console.log( $( this ) );
+    console.log( "original state: ", + state );
+
+
+    //    Check state  and animate or stop animation
+
+    if ( state === 'still' )
+    {
+        $( this ).attr( 'data-state', 'move' );
+        let moveURL = $( this ).attr( 'data-move' );
+        $( this ).attr( 'src', moveURL );
+        console.log( state );
+    } else //( state === 'move' )
+    {
+        $( this ).attr( 'data-state', 'still' );
+        let stillURL = $( this ).attr( 'data-still' );
+        $( this ).attr( 'src', stillURL );
+        console.log( state );
+    }
+
+
+
+} )
+
 
 // // Push Search topic into the topics array
 
@@ -116,12 +118,13 @@ $( '#search' ).on( 'click', function ()
 
     topics.push( searchTopic );
     console.log( topics );
+    $( '#buttonDiv' ).empty();
     for ( let nt = 0; nt < topics.length; nt++ )
     {
 
 
         let but = $( '<button>' ).text( topics[ nt ] ).attr( 'class', "btn btn-primary click" ).attr( 'data-search', topics[ nt ] );
-        $( '#buttonDiv' ).empty();
+
         $( '#buttonDiv' ).append( but );
 
 

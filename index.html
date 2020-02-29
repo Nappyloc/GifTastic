@@ -16,25 +16,23 @@
     <link rel="stylesheet" type="text/css" href="./assets/style/style.css" />
   </head>
   <body>
-    <div class="row">
+    <div class="row" id="row1">
       <div class="col-12">
-        <div id="buttonDiv">
-          <button class="btn btn-primary">test</button>
-          <button>test</button>
-          <button>test</button>
-        </div>
-        <div class="row">
-          <div id="resultsDiv" class="col-6"></div>
-          <div class="col-6">
-            <form>
-              <div class="form-group">
-                <label for="search">Add a search button</label>
-                <input type="text" class="form-control" id="search" />
-              </div>
-              <button type="submit" class="btn btn-primary">Search</button>
-            </form>
+        <div id="buttonDiv"></div>
+      </div>
+    </div>
+    <div class="row" id="row2">
+      <div id="resultsDiv" class="col-8"></div>
+      <div class="col-4">
+        <form>
+          <div class="form-group">
+            <label for="search">Add an Action Hero</label>
+            <input type="text" class="form-control" id="input" />
           </div>
-        </div>
+          <button id="search" class="btn btn-primary">
+            Search
+          </button>
+        </form>
       </div>
     </div>
 

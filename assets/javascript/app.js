@@ -25,7 +25,7 @@ $( document ).ready( function ()
             method: "GET"
         } ).then( function ( response )
         {
-            debugger;
+
 
 
             var results = response.data
@@ -38,7 +38,11 @@ $( document ).ready( function ()
                 var rating = results[ d ].rating;
 
                 var p = $( '<p>' ).text( 'Rating: ' + rating );
-                var giph = $( "<img>" ).attr( 'class', 'moveMe' ).attr( 'data-still', results[ d ].images.original_still.url ).attr( 'data-move', results[ d ].images.original.url ).attr( 'data-state', 'still' );
+                var giph = $( "<img>" );
+                giph.attr( 'class', 'moveMe' );
+                giph.attr( 'data-still', results[ d ].images.original_still.url );
+                giph.attr( 'data-move', results[ d ].images.original.url )
+                giph.attr( 'data-state', 'still' );
                 giph.attr( "src", results[ d ].images.fixed_width_still.url );
                 gifDiv.append( p, giph );
                 $( '#resultsDiv' ).prepend( gifDiv );
@@ -47,10 +51,12 @@ $( document ).ready( function ()
 
                 // Click on image function to start and stop animation
 
-                $( '.moveMe' ).on( 'click', function ()
+                $( '.moveMe' ).click( function ( event )
                 {
+                    event.stopPropagation();
                     let state = $( this ).attr( 'data-state' );
-                    console.log( 'state:', +   state );
+                    console.log( $( this ) );
+                    console.log( "original state: ", + state );
 
 
                     //    Check state  and animate or stop animation
@@ -60,16 +66,13 @@ $( document ).ready( function ()
                         $( this ).attr( 'data-state', 'move' );
                         let moveURL = $( this ).attr( 'data-move' );
                         $( this ).attr( 'src', moveURL );
-                    }
-
-
-
-
-                    if ( state === 'move' )
+                        console.log( state );
+                    } else //( state === 'move' )
                     {
                         $( this ).attr( 'data-state', 'still' );
                         let stillURL = $( this ).attr( 'data-still' );
                         $( this ).attr( 'src', stillURL );
+                        console.log( state );
                     }
 
 
@@ -102,23 +105,35 @@ $( document ).ready( function ()
 
 
 
+// // Push Search topic into the topics array
+
+$( '#search' ).on( 'click', function ()
+{
+    event.preventDefault();
+    let searchTopic = $( '#input' ).val();
+    console.log( searchTopic );
+
+
+    topics.push( searchTopic );
+    console.log( topics );
+    for ( let nt = 0; nt < topics.length; nt++ )
+    {
+
+
+        let but = $( '<button>' ).text( topics[ nt ] ).attr( 'class', "btn btn-primary click" ).attr( 'data-search', topics[ nt ] );
+        $( '#buttonDiv' ).empty();
+        $( '#buttonDiv' ).append( but );
+
+
+    }
 
 
 
+} )
 
 
 
-
-
-
-
-
-
-
-
-// // Create Search Button from Search Input
-
-
+// Remake buttons from updted array
 
 
 

@@ -9,70 +9,58 @@ $( document ).ready( function ()
         var but = $( '<button>' ).text( topics[ b ] ).attr( 'class', "btn btn-primary click" ).attr( 'data-search', topics[ b ] );
         $( '#buttonDiv' ).append( but );
 
-
-
-        // on button click call the ajax to return the clicked topic info
-
     }
-    $( '.click' ).on( 'click', function ()
-    {
-        $( '#resultsDiv' ).empty();
-        let search = $( this ).attr( 'data-search' );
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=SIzTkCeV8ao2iGwLRXzhrwanEImChuJP&limit=10";
 
-        $.ajax( {
-            url: queryURL,
-            method: "GET"
-        } ).then( function ( response )
+
+} )
+
+
+// Display results upon button click
+
+$( document ).on( 'click', '.click', function ()
+{
+    let search = $( this ).attr( 'data-search' );
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=SIzTkCeV8ao2iGwLRXzhrwanEImChuJP&limit=10";
+
+    $.ajax( {
+        url: queryURL,
+        method: "GET"
+    } ).then( function ( response )
+    {
+
+
+
+        var results = response.data
+        for ( let d = 0; d < results.length; d++ )
         {
 
+            // Create gifDiv and set the attributes to call it and animate later
+            var gifDiv = $( '<div>' );
+            gifDiv.attr( 'class', 'block' );
+
+            var rating = results[ d ].rating;
+
+            var p = $( '<p>' ).text( 'Rating: ' + rating );
+            var giph = $( "<img>" );
+            giph.attr( 'class', 'moveMe' );
+            giph.attr( 'data-still', results[ d ].images.original_still.url );
+            giph.attr( 'data-move', results[ d ].images.original.url )
+            giph.attr( 'data-state', 'still' );
+            giph.attr( "src", results[ d ].images.fixed_width_still.url );
+            gifDiv.append( p, giph );
+            $( '#resultsDiv' ).prepend( gifDiv );
 
 
-            var results = response.data
-            for ( let d = 0; d < results.length; d++ )
-            {
-
-                // Create gifDiv and set the attributes to call it and animate later
-                var gifDiv = $( '<div>' );
-
-                var rating = results[ d ].rating;
-
-                var p = $( '<p>' ).text( 'Rating: ' + rating );
-                var giph = $( "<img>" );
-                giph.attr( 'class', 'moveMe' );
-                giph.attr( 'data-still', results[ d ].images.original_still.url );
-                giph.attr( 'data-move', results[ d ].images.original.url )
-                giph.attr( 'data-state', 'still' );
-                giph.attr( "src", results[ d ].images.fixed_width_still.url );
-                gifDiv.append( p, giph );
-                $( '#resultsDiv' ).prepend( gifDiv );
-
-
-
-
-
-
-
-
-
-
-
-
-
-            }
-        } )
-
-
+        }
 
 
     } )
 
 
-
-
-
-
 } )
+
+
+
 
 
 
@@ -133,45 +121,4 @@ $( '#search' ).on( 'click', function ()
 
 } )
 
-$( document ).on( 'click', '.click', function ()
-{
-    $( '#resultsDiv' ).empty();
-    let search = $( this ).attr( 'data-search' );
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=SIzTkCeV8ao2iGwLRXzhrwanEImChuJP&limit=10";
 
-    $.ajax( {
-        url: queryURL,
-        method: "GET"
-    } ).then( function ( response )
-    {
-
-
-
-        var results = response.data
-        for ( let d = 0; d < results.length; d++ )
-        {
-
-            // Create gifDiv and set the attributes to call it and animate later
-            var gifDiv = $( '<div>' );
-
-            var rating = results[ d ].rating;
-
-            var p = $( '<p>' ).text( 'Rating: ' + rating );
-            var giph = $( "<img>" );
-            giph.attr( 'class', 'moveMe' );
-            giph.attr( 'data-still', results[ d ].images.original_still.url );
-            giph.attr( 'data-move', results[ d ].images.original.url )
-            giph.attr( 'data-state', 'still' );
-            giph.attr( "src", results[ d ].images.fixed_width_still.url );
-            gifDiv.append( p, giph );
-            $( '#resultsDiv' ).prepend( gifDiv );
-
-
-        }
-
-
-
-
-
-    } )
-} )   

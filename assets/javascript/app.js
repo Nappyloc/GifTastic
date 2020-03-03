@@ -95,30 +95,44 @@ $( document ).on( 'click', '.moveMe', function ()
 } )
 
 
+
+
+
+
 // // Push Search topic into the topics array
 
 $( '#search' ).on( 'click', function ()
 {
     event.preventDefault();
     let searchTopic = $( '#input' ).val();
-    console.log( searchTopic );
 
-
-    topics.push( searchTopic );
-    console.log( topics );
-    $( '#buttonDiv' ).empty();
-    for ( let nt = 0; nt < topics.length; nt++ )
+    if ( searchTopic === "" )
+    {
+        alert( "Please enter a valid search" )
+    } else
     {
 
 
-        let but = $( '<button>' ).text( topics[ nt ] ).attr( 'class', "btn btn-primary click" ).attr( 'data-search', topics[ nt ] );
-        $( '#buttonDiv' ).append( but );
+        console.log( searchTopic );
+
+
+        topics.push( searchTopic );
+        console.log( topics );
+        $( '#buttonDiv' ).empty();
+        for ( let nt = 0; nt < topics.length; nt++ )
+        {
+
+
+            let but = $( '<button>' ).text( topics[ nt ] ).attr( 'class', "btn btn-primary click" ).attr( 'data-search', topics[ nt ] );
+            $( '#buttonDiv' ).append( but );
+
+
+        }
 
 
     }
-
+    $( '#input' )
 
 
 } )
-
 

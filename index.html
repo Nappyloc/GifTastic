@@ -30,7 +30,12 @@
           <div class="form-group">
             <label for="search">Add an Action Hero</label>
             <p id="subtext">add a new button by entering in a new search</p>
-            <input type="text" class="form-control" id="input" />
+            <input
+              type="text"
+              class="form-control"
+              onfocus="this.value=''"
+              id="input"
+            />
           </div>
           <button id="search" class="btn btn-primary">
             Search

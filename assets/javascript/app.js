@@ -70,8 +70,6 @@ $( document ).on( 'click', '.moveMe', function ()
 {
 
     let state = $( this ).attr( 'data-state' );
-    console.log( $( this ) );
-    console.log( "original state: ", + state );
 
 
     //    Check state  and animate or stop animation
@@ -81,13 +79,13 @@ $( document ).on( 'click', '.moveMe', function ()
         $( this ).attr( 'data-state', 'move' );
         let moveURL = $( this ).attr( 'data-move' );
         $( this ).attr( 'src', moveURL );
-        console.log( state );
+
     } else //( state === 'move' )
     {
         $( this ).attr( 'data-state', 'still' );
         let stillURL = $( this ).attr( 'data-still' );
         $( this ).attr( 'src', stillURL );
-        console.log( state );
+
     }
 
 
@@ -113,11 +111,12 @@ $( '#search' ).on( 'click', function ()
     {
 
 
-        console.log( searchTopic );
 
 
+
+        // @ts-ignore
         topics.push( searchTopic );
-        console.log( topics );
+
         $( '#buttonDiv' ).empty();
         for ( let nt = 0; nt < topics.length; nt++ )
         {

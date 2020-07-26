@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>GifTastic</title>
     <!-- MDB icon -->
     <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+    />
     <!-- Google Fonts Roboto -->
     <link
       rel="stylesheet"
@@ -17,49 +21,45 @@
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css" />
     <!-- Custom styles -->
-    <style></style>
+
+    <link rel="stylesheet" type="text/css" href="./assets/style/style.css" />
   </head>
   <body>
-    <!-- Start your project here-->
-    <div class="container">
-      <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
-        <div class="text-center">
-          <div class="row">
-            <div class="col-7">
-              <h3>Click on a button to search for Gifs</h3>
-              <hr class="my-4" />
-              <div id="buttonDiv"></div>
-            </div>
-          </div>
-          <div class="row" id="row2">
-            <div id="resultsDiv" class="col-9"></div>
-            <div class="col-3">
-              <form>
-                <div class="form-group">
-                  <label for="search">Add an Action Hero</label>
-                  <p id="subtext">add a new button by entering in a new search</p>
-                  <input
-                    type="text"
-                    class="form-control"
-                    onfocus="this.value=''"
-                    id="input"
-                  />
-                </div>
-                <button id="search" class="btn btn-primary">
-                  Search
-                </button>
-              </form>
-            </div>
-
-          
-        </div>
+    <div class="row">
+      <div class="col-7">
+        <h3>Click on a button to search for Gifs</h3>
+        <hr class="my-4" />
+        <div id="buttonDiv"></div>
       </div>
     </div>
-    <!-- End your project here-->
-  </body>
+    <div class="row" id="row2">
+      <div id="resultsDiv" class="col-9"></div>
+      <div class="col-3">
+        <form>
+          <div class="form-group">
+            <label for="search">Add an Action Hero</label>
+            <p id="subtext">add a new button by entering in a new search</p>
+            <input
+              type="text"
+              class="form-control"
+              onfocus="this.value=''"
+              id="input"
+            />
+          </div>
+          <button id="search" class="btn btn-primary">
+            Search
+          </button>
+        </form>
+      </div>
+    </div>
 
-  <!-- MDB -->
-  <script type="text/javascript" src="js/mdb.min.js"></script>
-  <!-- Custom scripts -->
-  <script type="text/javascript" src="./assets/javascript/app.js"></script>
+    <!-- Javascript Links to Jquery and app.js -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript" src="./assets/javascript/app.js"></script>
+  </body>
 </html>

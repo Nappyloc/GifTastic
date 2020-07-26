@@ -1,0 +1,24 @@
+{
+  "name": "giftastic",
+  "version": "1.0.0",
+  "description": "Assignment",
+  "main": "index.js",
+  "dependencies": {
+    "@types/jquery": "^3.5.0",
+    "jquery": "^3.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nappyloc/GifTastic.git"
+  },
+  "author": "Dania King",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nappyloc/GifTastic/issues"
+  },
+  "homepage": "https://github.com/Nappyloc/GifTastic#readme"
+}

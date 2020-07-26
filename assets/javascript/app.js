@@ -6,7 +6,7 @@ $( document ).ready( function ()
 {
     for ( let b = 0; b < topics.length; b++ )
     {
-        var but = $( '<button>' ).text( topics[ b ] ).attr( 'class', "btn btn-primary click" ).attr( 'data-search', topics[ b ] );
+        var but = $( '<button>' ).text( topics[ b ] ).attr( 'class', "btn btn-dark click list-group-item list-group-item-action" ).attr( 'data-search', topics[ b ] ).attr( "type", "button" );
         $( '#buttonDiv' ).append( but );
 
     }
@@ -35,19 +35,23 @@ $( document ).on( 'click', '.click', function ()
         {
 
             // Create gifDiv and set the attributes to call it and animate later
-            var gifDiv = $( '<div>' );
-            gifDiv.attr( 'class', 'block' );
+            var gifDiv = $( '<div>' ).attr( 'class', 'd-inline-flex p-2' )
+
+            var gifCard = $( '<div>' );
+            gifCard.attr( 'class', 'card w-50' );
 
             var rating = results[ d ].rating;
-
-            var p = $( '<p>' ).text( 'Rating: ' + rating );
+            var body = $( '<div>' ).attr( 'class', 'card-body' )
+            var p = $( '<p>' ).text( 'Rating: ' + rating ).attr( "class", "card-text" );
             var giph = $( "<img>" );
-            giph.attr( 'class', 'moveMe' );
+            giph.attr( 'class', 'card-img-top moveMe' );
             giph.attr( 'data-still', results[ d ].images.original_still.url );
             giph.attr( 'data-move', results[ d ].images.original.url )
             giph.attr( 'data-state', 'still' );
             giph.attr( "src", results[ d ].images.fixed_width_still.url );
-            gifDiv.append( p, giph );
+            body.append( p )
+            gifCard.append( giph, body );
+            gifDiv.append( gifCard )
             $( '#resultsDiv' ).prepend( gifDiv );
 
 
@@ -122,7 +126,7 @@ $( '#search' ).on( 'click', function ()
         {
 
 
-            let but = $( '<button>' ).text( topics[ nt ] ).attr( 'class', "btn btn-primary click" ).attr( 'data-search', topics[ nt ] );
+            let but = $( '<button>' ).text( topics[ nt ] ).attr( 'class', "btn btn-dark click" ).attr( 'data-search', topics[ nt ] ).attr( "type", "button" );
             $( '#buttonDiv' ).append( but );
 
 

@@ -7,7 +7,11 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>GifTastic</title>
     <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <link
+      rel="icon"
+      href="https://res.cloudinary.com/dking14/image/upload/v1595736428/favicons/favicon_viszg8.ico"
+      type="image/x-icon"
+    />
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -25,33 +29,68 @@
     <link rel="stylesheet" type="text/css" href="./assets/style/style.css" />
   </head>
   <body>
-    <div class="row">
-      <div class="col-7">
-        <h3>Click on a button to search for Gifs</h3>
-        <hr class="my-4" />
-        <div id="buttonDiv"></div>
+    <!-- Nav -->
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            src="https://res.cloudinary.com/dking14/image/upload/v1595736428/favicons/favicon_viszg8.ico"
+            height="30"
+            alt=""
+            loading="lazy"
+          />
+          GifTastic
+        </a>
+      </div>
+    </nav>
+    <!-- Jumbotron -->
+    <div class="p-5 text-center bg-light">
+      <h1 class="mb-3">Welcome to GifTastic</h1>
+      <h4 class="mb-3">
+        Click on a button below to reveal the Gifs or create your own button
+      </h4>
+    </div>
+    <!-- Static Button Group -->
+    <div class="container justify-content-center">
+      <div class="row d-flex">
+        <!--Grid column-->
+        <div class="col-6 justify-content-center">
+          <div class="list-group list-group-horizontal" id="buttonDiv"></div>
+        </div>
+        <!--Grid column-->
+      </div>
+      <div class="row d-flex">
+        <div class="col-sm-9 " id="resultsDiv">
+          
+        </div>
+
+
+        <div class="col-3 d-flex justify-content-center  ">
+          <form class="">
+            <div class="form-group justify-content-center">
+              <label for="search" class="text-center">Add an Action Hero Button</label>
+              <p id="subtext">Type the Hero's Name then select Add Button</p>
+              <input
+                type="text"
+                class="form-control"
+                onfocus="this.value=''"
+                id="input"
+              />
+            </div>
+            <button id="search" class="btn btn-dark">
+              Add Button
+            </button>
+          </form>
+        </div>
+      </div> 
+
+
+
       </div>
     </div>
-    <div class="row" id="row2">
-      <div id="resultsDiv" class="col-9"></div>
-      <div class="col-3">
-        <form>
-          <div class="form-group">
-            <label for="search">Add an Action Hero</label>
-            <p id="subtext">add a new button by entering in a new search</p>
-            <input
-              type="text"
-              class="form-control"
-              onfocus="this.value=''"
-              id="input"
-            />
-          </div>
-          <button id="search" class="btn btn-primary">
-            Search
-          </button>
-        </form>
-      </div>
-    </div>
+
+
+      
 
     <!-- Javascript Links to Jquery and app.js -->
     <script
